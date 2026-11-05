@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Writing Studio</title><script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#101b2d;--teal:#49d6bd;--ink:#182438;--muted:#718096;--line:#e5eaf0}
+*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:var(--ink);font-family:"DM Sans",sans-serif}
+header{height:72px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,22px)}
+.brand{font:700 19px "Space Grotesk";letter-spacing:.5px}.brand span{color:var(--teal)}nav a{color:#d5deea;text-decoration:none;margin-left:22px;font-size:14px}
+.hero{background:var(--navy);color:white;padding:65px max(5vw,22px) 90px}.wrap{max-width:1080px;margin:auto}.eyebrow{color:var(--teal);letter-spacing:2px;font-size:12px;font-weight:bold;text-transform:uppercase}
+h1{font:700 clamp(40px,6vw,66px)/1.08 "Space Grotesk";margin:18px 0;max-width:700px}h1 span{color:var(--teal)}.hero p{color:#c0ccdb;max-width:590px;line-height:1.7}
+main{max-width:1080px;margin:-38px auto 75px;padding:0 22px}.panel{background:white;border:1px solid var(--line);border-radius:17px;padding:28px;box-shadow:0 18px 55px #14233b12}
+h2{font:700 25px "Space Grotesk";margin:0 0 7px}.sub{color:var(--muted);font-size:14px;margin:0 0 24px}
+label{display:block;font-size:13px;font-weight:700;margin:0 0 8px}input,select,textarea{font:inherit;border:1px solid #dce3eb;border-radius:10px;padding:13px;width:100%;outline:none}input:focus,select:focus,textarea:focus{border-color:#5475ed;box-shadow:0 0 0 3px #315cf51a}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:17px}.actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px}.btn{border:0;border-radius:9px;padding:13px 18px;font-weight:700;cursor:pointer}.primary{background:var(--teal);color:var(--navy)}.dark{background:var(--navy);color:white}.light{background:#edf1f5;color:#26354a}.btn:disabled{opacity:.55;cursor:wait}
+.agents{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.agent{border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:12px;color:#657286}.agent b{color:#25344a}
+#status,#error{font-size:13px;margin-top:16px;line-height:1.5}#status{color:#168d7b}#error{display:none;background:#fff0ef;color:#a12c25;padding:12px;border-radius:8px}#error.show{display:block}
+#result{display:none;margin-top:22px;border:1px solid var(--line);border-radius:13px;padding:20px}#result.show{display:block}#article{min-height:430px;resize:vertical;margin-top:8px;line-height:1.65}.result-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.blog{margin-top:58px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:20px}.card{background:white;border:1px solid var(--line);border-radius:12px;padding:20px}.card h3{font:600 18px "Space Grotesk"}.card p{color:var(--muted);font-size:13px;line-height:1.5}.card button{background:none;border:0;color:#315cf5;font-weight:bold;padding:0;cursor:pointer}.empty{grid-column:1/-1;background:white;border:1px dashed #d4dce6;border-radius:12px;padding:30px;text-align:center;color:var(--muted)}
+.modal{display:none;position:fixed;inset:0;overflow:auto;background:#101b2dcc;padding:25px;z-index:5}.modal.show{display:block}.modalbox{max-width:820px;background:white;border-radius:14px;padding:30px;margin:25px auto}.article{line-height:1.8;max-width:720px;margin:auto}.article h1,.article h2,.article h3{font-family:"Space Grotesk";color:var(--ink)}.article pre{background:#101b2d;color:white;padding:15px;overflow:auto;border-radius:8px}
+footer{text-align:center;background:var(--navy);color:#b8c4d4;padding:25px;font-size:12px}
+@media(max-width:700px){.fields,.cards{grid-template-columns:1fr}.panel{padding:20px}.actions{align-items:flex-start;flex-direction:column}nav a{margin-left:10px;font-size:12px}}
+</style></head><body>
+<header><div class="brand">W<span>.</span> THE WRITING STUDIO</div><nav><a href="#studio">AI Studio</a><a href="#blog">Published blogs</a></nav></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">Ideas into engineering insight</div><h1>Write smarter.<br><span>Build authority.</span></h1><p>A multi-agent writing studio for practical technical blogs. Plan an idea, develop the article, and validate the final draft — all in one place.</p></div></section>
+<main><section class="panel" id="studio"><h2>AI writing studio</h2><p class="sub">Give your agent team a topic. They will take it from outline to polished draft.</p>
+<label for="topic">What should the agents write about?</label><input id="topic" placeholder="e.g. How AI agents are changing software development">
+<div class="fields"><div><label for="audience">Target audience</label><select id="audience"><option>software engineers</option><option>beginner developers</option><option>senior developers and architects</option><option>computer science students</option><option>technology leaders</option></select></div><div><label for="tone">Writing style</label><select id="tone"><option>practical and clear</option><option>friendly and conversational</option><option>technical and detailed</option><option>professional and concise</option></select></div></div>
+<div class="actions"><small style="color:#718096">Your Gemini API key stays on the server.</small><button id="generate" class="btn dark" onclick="generate()">Generate blog post ✦</button></div>
+<div class="agents"><div class="agent"><b>01 Planner</b> · structures the idea</div><div class="agent"><b>02 Writer</b> · drafts the article</div><div class="agent"><b>03 Validator</b> · reviews the draft</div></div>
+<div id="status"></div><div id="error"></div>
+<div id="result"><h2>Your generated article</h2><label for="title">Article title</label><input id="title"><label for="article" style="margin-top:14px">Edit your article (Markdown)</label><textarea id="article"></textarea><div class="result-actions"><button class="btn light" onclick="copyText()">Copy article</button><button class="btn light" onclick="downloadText()">Download .md</button><button class="btn primary" onclick="publish()">Publish to blog ↗</button></div></div>
+</section><section class="blog" id="blog"><h2>From the blog</h2><p class="sub">Practical ideas for people who build software.</p><div id="posts" class="cards"><div class="empty">Loading articles…</div></div></section></main>
+<div id="modal" class="modal" onclick="if(event.target===this)this.classList.remove('show')"><div class="modalbox"><button class="btn light" onclick="document.getElementById('modal').classList.remove('show')">Close ✕</button><div id="modalbody" class="article"></div></div></div>
+<footer>THE WRITING STUDIO · Built for curious engineers and thoughtful builders.</footer>
+<script>
+let topicNow='';
+const el=id=>document.getElementById(id);
+function err(s){el('error').textContent=s;el('error').classList.add('show')}
+async function generate(){
+ el('error').classList.remove('show');el('result').classList.remove('show');
+ topicNow=el('topic').value.trim();if(topicNow.length<5){err('Enter a topic with at least five characters.');return}
+ const b=el('generate');b.disabled=true;b.textContent='Agents working…';el('status').textContent='Planner → Writer → Validator. This can take a minute or two.';
+ try{
+  const r=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({topic:topicNow,audience:el('audience').value,tone:el('tone').value})});
+  const d=await r.json();if(!r.ok)throw Error(d.detail||'The agents could not complete the request.');
+  el('title').value=d.title;el('article').value=d.content;el('result').classList.add('show');el('status').textContent='All three agents completed their work.';
+  el('result').scrollIntoView({behavior:'smooth'});
+ }catch(e){err(e.message)}finally{b.disabled=false;b.textContent='Generate blog post ✦'}
+}
+async function publish(){
+ try{const r=await fetch('/api/publish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({title:el('title').value,topic:topicNow,content:el('article').value})});const d=await r.json();if(!r.ok)throw Error(d.detail||'Could not publish');el('status').textContent='Published successfully! Your post is now on the homepage.';await loadPosts();el('blog').scrollIntoView({behavior:'smooth'})}catch(e){err(e.message)}
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+async function loadPosts(){try{const r=await fetch('/api/posts');const ps=await r.json();el('posts').innerHTML=ps.length?ps.map(p=>`<article class="card"><small style="color:#168d7b;font-weight:bold">TECHNICAL JOURNAL</small><h3>${esc(p.title)}</h3><p>${esc(p.topic||'Practical technical article')}</p><button onclick="readPost(${p.id})">Read article →</button></article>`).join(''):'<div class="empty">No articles published yet. Generate your first post above.</div>'}catch(e){el('posts').innerHTML='<div class="empty">Could not load articles.</div>'}}
+async function readPost(id){const r=await fetch('/api/posts/'+id);const p=await r.json();el('modalbody').innerHTML='<h1>'+esc(p.title)+'</h1>'+(window.marked?marked.parse(p.content):'<pre>'+esc(p.content)+'</pre>');el('modal').classList.add('show')}
+function copyText(){navigator.clipboard.writeText(el('article').value).then(()=>el('status').textContent='Copied article.')}
+function downloadText(){const a=document.createElement('a'),u=URL.createObjectURL(new Blob([el('article').value],{type:'text/markdown'}));a.href=u;a.download='technical-blog.md';a.click();URL.revokeObjectURL(u)}
+el('topic').addEventListener('keydown',e=>{if(e.key==='Enter')generate()});loadPosts();
+</script></body></html>
